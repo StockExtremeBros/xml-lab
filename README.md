@@ -1,28 +1,28 @@
 # xml-lab
 
-<TimeSlot>
-	<booking>
-		<time start="0830" end="1020">Monday</time>
-		<location>
-			<room>321</room>
-			<building>SE12</building>
-		</location>
-		<course type="lecture">
-			<name>COMP4981</name>
-			<instructor>Aman Abdulla</instructor>
-		</course>
-	</booking>
-	
-	<booking>
-		<time start="0830" end="1020">Monday</time>
-		<location>
-			<room>321</room>
-			<building>SE12</building>
-		</location>
-		<course type="lecture">
-			<name>COMP4981</name>
-			<instructor>Aman Abdulla</instructor>
-		</course>
-	</booking>
-	
+<TimeSlot start="0930" end="1120">
+    <day>Monday</day>
+    <code>COMP4935</code>
+    <type>Lab</type>
+    <building>SE12</building>
+    <room>323</room>
+    <instructor>Aman Abdulla</instructor>
 </TimeSlot>
+<DaySlot day="monday">
+    <start>0930</start> 
+    <end>1120</end>
+    <code>COMP4935</code>
+    <type>Lab</type>
+    <building>SE12</building>
+    <room>323</room>
+    <instructor>Aman Abdulla</instructor>
+</DaySlot>
+<CourseSlot code="COMP4985">
+    <day>Monday</day>
+    <start>0930</start> 
+    <end>1120</end>
+    <type>Lab</type>
+    <building>SE12</building>
+    <room>323</room>
+    <instructor>Aman Abdulla</instructor>
+</CourseSlot>
