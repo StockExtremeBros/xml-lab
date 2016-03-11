@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+
+<!ELEMENT courses (courseslot)*>
+
+<!ELEMENT courseslot (booking)*>
+<!ATTLIST courseslot
+    code CDATA #IMPLIED
+  >
+
+<!ELEMENT booking (day|start|end|building|room|type|instructor)*>
+
+<!ELEMENT day (#PCDATA)>
+
+<!ELEMENT start (#PCDATA)>
+
+<!ELEMENT end (#PCDATA)>
+
+<!ELEMENT building (#PCDATA)>
+
+<!ELEMENT room (#PCDATA)>
+
+<!ELEMENT type (#PCDATA)>
+
+<!ELEMENT instructor (#PCDATA)>
