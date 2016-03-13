@@ -3,24 +3,24 @@
 
 <!ELEMENT courses (courseslot)*>
 <!ELEMENT timeslots (timeslot)*>
+<!ELEMENT days (dayslot)*>
 
 <!ELEMENT courseslot (booking)*>
 <!ELEMENT timeslot (booking)*>
+<!ELEMENT dayslot (booking)*>
+
 <!ATTLIST courseslot
     code CDATA #IMPLIED
-  >
+>
 <!ATTLIST timeslot
     start CDATA #IMPLIED
     end CDATA #IMPLIED
-  >
-
-<!ELEMENT booking (day|code|start|end|building|room|type|instructor)*>
-<!ELEMENT days (dayslot)*>
-
-<!ELEMENT dayslot (booking)*>
+>
 <!ATTLIST dayslot
     day (Monday|Tuesday|Wednesday|Thursday|Friday) #REQUIRED
 >
+
+<!ELEMENT booking (day?|code?|start?|end?|building|room|type|instructor)*>
 
 <!ELEMENT day (#PCDATA)>
 
