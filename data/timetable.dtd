@@ -15,6 +15,12 @@
   >
 
 <!ELEMENT booking (day|code|start|end|building|room|type|instructor)*>
+<!ELEMENT days (dayslot)*>
+
+<!ELEMENT dayslot (booking)*>
+<!ATTLIST dayslot
+    day (Monday|Tuesday|Wednesday|Thursday|Friday) #REQUIRED
+>
 
 <!ELEMENT day (#PCDATA)>
 
