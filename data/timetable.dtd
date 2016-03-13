@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+
+<!ELEMENT courses (courseslot)*>
+<!ELEMENT timeslots (timeslot)*>
+<!ELEMENT days (dayslot)*>
+
+<!ELEMENT courseslot (booking)*>
+<!ELEMENT timeslot (booking)*>
+<!ELEMENT dayslot (booking)*>
+
+<!ATTLIST courseslot
+    code CDATA #IMPLIED
+>
+<!ATTLIST timeslot
+    start CDATA #IMPLIED
+    end CDATA #IMPLIED
+>
+<!ATTLIST dayslot
+    day (Monday|Tuesday|Wednesday|Thursday|Friday) #REQUIRED
+>
+
+<!ELEMENT booking (day?|code?|start?|end?|building|room|type|instructor)*>
+
+<!ELEMENT day (#PCDATA)>
+
+<!ELEMENT start (#PCDATA)>
+
+<!ELEMENT end (#PCDATA)>
+
+<!ELEMENT building (#PCDATA)>
+
+<!ELEMENT room (#PCDATA)>
+
+<!ELEMENT type (#PCDATA)>
+
+<!ELEMENT instructor (#PCDATA)>
+
+<!ELEMENT code (#PCDATA)>

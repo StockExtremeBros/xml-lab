@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<!DOCTYPE days SYSTEM 'timetable.dtd'>
+
+<days>
+    <dayslot day="Monday">
+        <booking>
+            <code>COMP4985</code>
+            <start>0930</start> 
+            <end>1120</end>
+            <building>SE12</building>
+            <room>323</room>
+            <type>lecture/lab</type>
+            <instructor>Aman Abdulla</instructor>
+        </booking>
+        <booking>
+            <code>COMP4735</code>
+            <start>1130</start> 
+            <end>1220</end>
+            <building>SW1</building>
+            <room>1205</room>
+            <type>lecture</type>
+            <instructor>Mirela Gutica</instructor>
+        </booking>
+        <booking>
+            <code>BLAW3600</code>
+            <start>1230</start> 
+            <end>1420</end>
+            <building>SW9</building>
+            <room>127</room>
+            <type>lab</type>
+            <instructor>Catherine Ryan</instructor>
+        </booking>
+        <booking>
+            <code>COMP4560</code>
+            <start>1530</start> 
+            <end>1720</end>
+            <building>SE12</building>
+            <room>320</room>
+            <type>lab</type>
+            <instructor>Brenda Fine</instructor>
+        </booking>
+    </dayslot>
+    
+    <dayslot day="Tuesday">
+        <booking>
+            <code>COMP4981</code>
+            <start>0930</start> 
+            <end>1120</end>
+            <building>SE12</building>
+            <room>323</room>
+            <type>lecture/lab</type>
+            <instructor>Aman Abdulla</instructor>
+        </booking>
+        <booking>
+            <code>COMP4560</code>
+            <start>1130</start> 
+            <end>1220</end>
+            <building>SW5</building>
+            <room>1850</room>
+            <type>lecture</type>
+            <instructor>Brenda Fine</instructor>
+        </booking>
+        <booking>
+            <code>COMP4711</code>
+            <start>1430</start>
+            <end>1520</end>
+            <building>SW5</building>
+            <room>1840</room>
+            <type>lecture</type>
+            <instructor>Jim Parry</instructor>
+        </booking>
+        <booking>
+            <code>COMP4711</code>
+            <start>1530</start>
+            <end>1720</end>
+            <building>SE12</building>
+            <room>321</room>
+            <instructor>Jim Parry</instructor>
+        </booking>
+    </dayslot>
+    
+    <dayslot day="Wednesday">
+        <booking>
+            <code>COMP4985</code>
+            <start>0930</start> 
+            <end>1220</end>
+            <building>SE12</building>
+            <room>323</room>
+            <type>lecture/lab</type>
+            <instructor>Aman Abdulla</instructor>
+        </booking>
+        <booking>
+            <code>COMP4981</code>
+            <start>1230</start> 
+            <end>1320</end>
+            <building>SE12</building>
+            <room>323</room>
+            <type>lecture/lab</type>
+            <instructor>Aman Abdulla</instructor>
+        </booking>
+        <booking>
+            <code>COMP4735</code>
+            <start>1330</start>
+            <end>1420</end>
+            <building>SW1</building>
+            <room>1205</room>
+            <type>lecture</type>
+            <instructor>Mirela Gutica</instructor>
+        </booking>
+    </dayslot>
+    
+    <dayslot day="Thursday">
+        <booking>
+            <code>COMP4981</code>
+            <start>0930</start> 
+            <end>1120</end>
+            <building>SE12</building>
+            <room>323</room>
+            <type>lecture/lab</type>
+            <instructor>Aman Abdulla</instructor>
+        </booking>
+        <booking>
+            <code>COMP4735</code>
+            <start>1130</start>
+            <end>1220</end>
+            <building>SW1</building>
+            <room>1710</room>
+            <type>lecture</type>
+            <instructor>Mirela Gutica</instructor>
+        </booking>
+        <booking>
+            <code>COMP4735</code>
+            <start>1530</start>
+            <end>1720</end>
+            <building>SE12</building>
+            <room>322</room>
+            <type>lab</type>
+            <instructor>Matthew Linder</instructor>
+        </booking>
+    </dayslot>
+    
+    <dayslot day="Friday">
+        <booking>
+            <code>BLAW3600</code>
+            <start>0830</start> 
+            <end>1020</end>
+            <building>SW5</building>
+            <room>1840</room>
+            <type>lecture</type>
+            <instructor>Catherine Ryan</instructor>
+        </booking>
+        <booking>
+            <code>COMP4560</code>
+            <start>1230</start> 
+            <end>1320</end>
+            <building>SW3</building>
+            <room>1750</room>
+            <type>lecture</type>
+            <instructor>Brenda Fine</instructor>
+        </booking>
+    </dayslot>
+    
+</days>
