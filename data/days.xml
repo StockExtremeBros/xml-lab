@@ -6,10 +6,11 @@ and open the template in the editor.
 -->
 
 <!DOCTYPE days SYSTEM 'timetable.dtd'>
+
 <days>
     <dayslot day="Monday">
         <booking>
-            <day>Monday</day>
+            <code>COMP4985</code>
             <start>0930</start> 
             <end>1120</end>
             <building>SE12</building>
@@ -18,7 +19,7 @@ and open the template in the editor.
             <instructor>Aman Abdulla</instructor>
         </booking>
         <booking>
-            <day>Monday</day>
+            <code>COMP4735</code>
             <start>1130</start> 
             <end>1220</end>
             <building>SW1</building>
@@ -27,7 +28,7 @@ and open the template in the editor.
             <instructor>Mirela Gutica</instructor>
         </booking>
         <booking>
-            <day>Monday</day>
+            <code>BLAW3600</code>
             <start>1230</start> 
             <end>1420</end>
             <building>SW9</building>
@@ -36,7 +37,7 @@ and open the template in the editor.
             <instructor>Catherine Ryan</instructor>
         </booking>
         <booking>
-            <day>Monday</day>
+            <code>COMP4560</code>
             <start>1530</start> 
             <end>1720</end>
             <building>SE12</building>
@@ -45,9 +46,10 @@ and open the template in the editor.
             <instructor>Brenda Fine</instructor>
         </booking>
     </dayslot>
+    
     <dayslot day="Tuesday">
         <booking>
-            <day>Tuesday</day>
+            <code>COMP4981</code>
             <start>0930</start> 
             <end>1120</end>
             <building>SE12</building>
@@ -56,7 +58,7 @@ and open the template in the editor.
             <instructor>Aman Abdulla</instructor>
         </booking>
         <booking>
-            <day>Tuesday</day>
+            <code>COMP4560</code>
             <start>1130</start> 
             <end>1220</end>
             <building>SW5</building>
@@ -65,7 +67,7 @@ and open the template in the editor.
             <instructor>Brenda Fine</instructor>
         </booking>
         <booking>
-            <day>Tuesday</day>
+            <code>COMP4711</code>
             <start>1430</start>
             <end>1520</end>
             <building>SW5</building>
@@ -74,7 +76,7 @@ and open the template in the editor.
             <instructor>Jim Parry</instructor>
         </booking>
         <booking>
-            <day>Tuesday</day>
+            <code>COMP4711</code>
             <start>1530</start>
             <end>1720</end>
             <building>SE12</building>
@@ -82,9 +84,10 @@ and open the template in the editor.
             <instructor>Jim Parry</instructor>
         </booking>
     </dayslot>
+    
     <dayslot day="Wednesday">
         <booking>
-            <day>Wednesday</day>
+            <code>COMP4985</code>
             <start>0930</start> 
             <end>1220</end>
             <building>SE12</building>
@@ -93,7 +96,7 @@ and open the template in the editor.
             <instructor>Aman Abdulla</instructor>
         </booking>
         <booking>
-            <day>Wednesday</day>
+            <code>COMP4981</code>
             <start>1230</start> 
             <end>1320</end>
             <building>SE12</building>
@@ -102,7 +105,7 @@ and open the template in the editor.
             <instructor>Aman Abdulla</instructor>
         </booking>
         <booking>
-            <day>Wednesday</day>
+            <code>COMP4735</code>
             <start>1330</start>
             <end>1420</end>
             <building>SW1</building>
@@ -111,9 +114,10 @@ and open the template in the editor.
             <instructor>Mirela Gutica</instructor>
         </booking>
     </dayslot>
+    
     <dayslot day="Thursday">
         <booking>
-            <day>Thursday</day>
+            <code>COMP4981</code>
             <start>0930</start> 
             <end>1120</end>
             <building>SE12</building>
@@ -122,7 +126,7 @@ and open the template in the editor.
             <instructor>Aman Abdulla</instructor>
         </booking>
         <booking>
-            <day>Thursday</day>
+            <code>COMP4735</code>
             <start>1130</start>
             <end>1220</end>
             <building>SW1</building>
@@ -131,7 +135,7 @@ and open the template in the editor.
             <instructor>Mirela Gutica</instructor>
         </booking>
         <booking>
-            <day>Thursday</day>
+            <code>COMP4735</code>
             <start>1530</start>
             <end>1720</end>
             <building>SE12</building>
@@ -140,9 +144,10 @@ and open the template in the editor.
             <instructor>Matthew Linder</instructor>
         </booking>
     </dayslot>
+    
     <dayslot day="Friday">
         <booking>
-            <day>Friday</day>
+            <code>BLAW3600</code>
             <start>0830</start> 
             <end>1020</end>
             <building>SW5</building>
@@ -151,7 +156,7 @@ and open the template in the editor.
             <instructor>Catherine Ryan</instructor>
         </booking>
         <booking>
-            <day>Friday</day>
+            <code>COMP4560</code>
             <start>1230</start> 
             <end>1320</end>
             <building>SW3</building>
@@ -160,4 +165,5 @@ and open the template in the editor.
             <instructor>Brenda Fine</instructor>
         </booking>
     </dayslot>
+    
 </days>
