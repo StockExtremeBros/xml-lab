@@ -8,6 +8,13 @@
     code CDATA #IMPLIED
   >
 
+<!ELEMENT days (dayslot)*>
+
+<!ELEMENT dayslot (booking)*>
+<!ATTLIST dayslot
+    day (Monday|Tuesday|Wednesday|Thursday|Friday) #REQUIRED
+>
+
 <!ELEMENT booking (day|start|end|building|room|type|instructor)*>
 
 <!ELEMENT day (#PCDATA)>
