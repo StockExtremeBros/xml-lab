@@ -8,7 +8,7 @@ and open the template in the editor.
 <!DOCTYPE root PUBLIC '-//W3C//DTD HTML 3.2 Final//EN' 'null'>
 
 <root>
-    <TimeSlot start="0830" end="1020">
+    <timeslot start="0830" end="1020">
         <booking>
             <day>Friday</day>
             <code>BLAW3600</code>
@@ -17,9 +17,9 @@ and open the template in the editor.
             <room>1840</room>
             <instructor>Catherine Ryan</instructor>
         </booking>
-    </TimeSlot>
+    </timeslot>
     
-    <TimeSlot start="0930" end="1120">
+    <timeslot start="0930" end="1120">
         <booking>
             <day>Monday</day>
             <code>COMP4985</code>
@@ -44,9 +44,9 @@ and open the template in the editor.
             <room>323</room>
             <instructor>Aman Abdulla</instructor>
         </booking>
-    </TimeSlot>
+    </timeslot>
     
-    <TimeSlot start="930" end="1220">
+    <timeslot start="930" end="1220">
         <booking>
             <day>Wednesday</day>
             <code>COMP4985</code>
@@ -55,9 +55,9 @@ and open the template in the editor.
             <room>323</room>
             <instructor>Aman Abdulla</instructor>
         </booking>
-    </TimeSlot>
+    </timeslot>
     
-    <TimeSlot start="1130" end="1220">
+    <timeslot start="1130" end="1220">
         <booking>
             <day>Monday</day>
             <code>COMP4735</code>
@@ -82,9 +82,9 @@ and open the template in the editor.
             <room>1710</room>
             <instructor>Mirela Gutica</instructor>
         </booking>
-    </TimeSlot>
+    </timeslot>
     
-    <TimeSlot start="1230" end="120">
+    <timeslot start="1230" end="120">
         <booking>
             <day>Wednesday</day>
             <code>COMP4985</code>
@@ -101,9 +101,9 @@ and open the template in the editor.
             <room>1750</room>
             <instructor>Brenda Fine</instructor>
         </booking>
-    </TimeSlot>
+    </timeslot>
     
-    <TimeSlot start="1230" end="220">
+    <timeslot start="1230" end="220">
         <booking>
             <day>Monday</day>
             <code>BLAW3600</code>
@@ -112,9 +112,9 @@ and open the template in the editor.
             <room>127</room>
             <instructor>Catherine Ryan</instructor>
         </booking>
-    </TimeSlot>
+    </timeslot>
     
-    <TimeSlot start="1330" end="1420">
+    <timeslot start="1330" end="1420">
         <booking>
             <day>Wednesday</day>
             <code>COMP4735</code>
@@ -123,9 +123,9 @@ and open the template in the editor.
             <room>1205</room>
             <instructor>Mirela Gutica</instructor>
         </booking>
-    </TimeSlot>
+    </timeslot>
     
-    <TimeSlot start="1430" end="1520">
+    <timeslot start="1430" end="1520">
         <booking>
             <day>Tuesday</day>
             <code>COMP4711</code>
@@ -134,9 +134,9 @@ and open the template in the editor.
             <room>1840</room>
             <instructor>James Parry</instructor>
         </booking>
-    </TimeSlot>
+    </timeslot>
     
-    <TimeSlot start="1530" end="1720">
+    <timeslot start="1530" end="1720">
         <booking>
             <day>Monday</day>
             <code>COMP4560</code>
@@ -161,6 +161,6 @@ and open the template in the editor.
             <room>322</room>
             <instructor>Matthew Linder</instructor>
         </booking>
-    </TimeSlot>
+    </timeslot>
     
 </root>

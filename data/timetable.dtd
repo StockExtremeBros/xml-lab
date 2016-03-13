@@ -2,9 +2,15 @@
 
 
 <!ELEMENT courses (courseslot)*>
+<!ELEMENT timeslots (timeslot)*>
 
 <!ELEMENT courseslot (booking)*>
+<!ELEMENT timeslot (booking)*>
 <!ATTLIST courseslot
+    code CDATA #IMPLIED
+  >
+
+<!ATTLIST timeslot
     code CDATA #IMPLIED
   >
 
