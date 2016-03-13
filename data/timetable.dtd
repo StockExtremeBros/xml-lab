@@ -2,13 +2,19 @@
 
 
 <!ELEMENT courses (courseslot)*>
+<!ELEMENT timeslots (timeslot)*>
 
 <!ELEMENT courseslot (booking)*>
+<!ELEMENT timeslot (booking)*>
 <!ATTLIST courseslot
     code CDATA #IMPLIED
   >
+<!ATTLIST timeslot
+    start CDATA #IMPLIED
+    end CDATA #IMPLIED
+  >
 
-<!ELEMENT booking (day|start|end|building|room|type|instructor)*>
+<!ELEMENT booking (day|code|start|end|building|room|type|instructor)*>
 
 <!ELEMENT day (#PCDATA)>
 
@@ -23,3 +29,5 @@
 <!ELEMENT type (#PCDATA)>
 
 <!ELEMENT instructor (#PCDATA)>
+
+<!ELEMENT code (#PCDATA)>
