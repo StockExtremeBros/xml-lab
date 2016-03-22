@@ -36,7 +36,7 @@ class Booking{
         $this->start = (String) $entry['start'];
         $this->end = (String) $entry['end'];
         $this->code = (String) $entry['code'];
-        $this->code = (String) $entry['building'];
+        $this->building = (String) $entry['building'];
         $this->room = (String) $entry['room'];
         $this->type = (String) $entry['type'];
         $this->instructor = (String) $entry['instructor'];        
