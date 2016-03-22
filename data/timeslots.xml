@@ -46,7 +46,7 @@ and open the template in the editor.
         </booking>
     </timeslot>
     
-    <timeslot start="930" end="1220">
+    <timeslot start="0930" end="1220">
         <booking>
             <day>Wednesday</day>
             <code>COMP4985</code>
