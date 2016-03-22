@@ -20,3 +20,14 @@ class TimeTable extends CI_Model{
     }
     
 }
+
+class Booking{
+    public $day;
+    public $start;
+    public $end;
+    public $code;
+    public $building;
+    public $room;
+    public $type;
+    public $instructor;
+}
