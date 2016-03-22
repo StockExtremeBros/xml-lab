@@ -1,27 +1,34 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
-
+<!-- Main container elements which contain all the individual "slot"
+    elements (see below) -->
 <!ELEMENT courses (courseslot)*>
 <!ELEMENT timeslots (timeslot)*>
 <!ELEMENT days (dayslot)*>
 
+<!-- Slot elements. Each of these organize the courses into an individual day,
+    time or course code -->
 <!ELEMENT courseslot (booking)*>
 <!ELEMENT timeslot (booking)*>
 <!ELEMENT dayslot (booking)*>
 
+<!-- Defines the contraints for each slot element -->
 <!ATTLIST courseslot
-    code CDATA #IMPLIED
+    code (BLAW3600|COMP4560|COMP4711|COMP4735|COMP4981|COMP4985) #REQUIRED
 >
 <!ATTLIST timeslot
-    start CDATA #IMPLIED
-    end CDATA #IMPLIED
+    start (0830|0930|1030|1130|1230|1330|1430|1530|1630) #REQUIRED
+    end (0920|1020|1120|1220|1320|1420|1520|1620|1720) #REQUIRED
 >
 <!ATTLIST dayslot
     day (Monday|Tuesday|Wednesday|Thursday|Friday) #REQUIRED
 >
 
+<!-- The "booking" element contains all the information not in a slot's
+    constraints -->
 <!ELEMENT booking (day?|code?|start?|end?|building|room|type|instructor)*>
 
+<!-- Individual information piece elements -->
 <!ELEMENT day (#PCDATA)>
 
 <!ELEMENT start (#PCDATA)>
