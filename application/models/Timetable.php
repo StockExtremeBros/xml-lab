@@ -6,12 +6,12 @@
  * and open the template in the editor.
  */
 
-class TimeTable extends CI_Model{
+class Timetable extends CI_Model{
     
     protected $xml = null;
     protected $timeslots = array();
-    protected $dayslots = array();
-    protected $courseslots = array();
+    protected $days = array();
+    protected $courses = array();
     
 
     //Create the Players model
@@ -21,7 +21,7 @@ class TimeTable extends CI_Model{
     
 }
 
-class Booking{
+class Booking {
     public $day;
     public $start;
     public $end;
