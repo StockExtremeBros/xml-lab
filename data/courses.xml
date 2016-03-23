@@ -9,14 +9,14 @@ and open the template in the editor.
 <courses>
     <courseslot code="COMP4711">
         <booking>
-            <day>Tuesday</day>booking(xml innerloop, courseslot)
+            <day>Tuesday</day>
             <start>1430</start>
             <end>1520</end>
             <building>SW5</building>
             <room>1840</room>
             <type>lecture</type>
             <instructor>Jim Parry</instructor>
-        </booking> courseslot (array of bookings => properties)
+        </booking>
         <booking>
             <day>Tuesday</day>
             <start>1530</start>

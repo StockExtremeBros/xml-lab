@@ -6,8 +6,8 @@
  * and open the template in the editor.
  */
 
-class Courseslot extends CI_Model {
-    public $code;
+class Courseslot extends Timetable {
+    //public $code;
     public $courseslots = array();
     //Create the Players model
     function __construct($filename = null) {
@@ -23,9 +23,13 @@ class Courseslot extends CI_Model {
         foreach ($this->xml->courseslot as $courseslot) 
         { 
             $this->code = (string) $courseslot['code'];
+            //var_dump($courseslot->booking);
             foreach($courseslot->booking as $booking)
             {
+                
+                //var_dump($booking);
                 $this->courseslots[$this->code] = new Booking($booking);
+                //var_dump(new Booking($booking));
             }
            
         }
