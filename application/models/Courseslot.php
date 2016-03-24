@@ -27,9 +27,9 @@ class Courseslot extends Timetable {
             foreach($courseslot->booking as $booking)
             {
                 
-                //var_dump($booking);
-                $this->courseslots[$this->code] = new Booking($booking);
-                //var_dump(new Booking($booking));
+                $tempBooking = new Booking($booking);
+                $tempBooking->code = $this->code;
+                $this->courseslots[$this->code][] = $tempBooking;
             }
            
         }

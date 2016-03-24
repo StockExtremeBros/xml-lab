@@ -23,8 +23,11 @@ class Welcome extends CI_Controller {
             $this->load->view('welcome_message');
             $this->load->model('timetable');
             $this->load->model('courseslot');
+            $this->load->model('dayslot');
+            $this->load->model('timeslot');
             
             var_dump($this->courseslot);
-            //$this->data['slots'] = $slots;
+            //var_dump($this->dayslot);
+            //var_dump($this->timeslot);
 	}
 }
