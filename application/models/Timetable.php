@@ -22,6 +22,7 @@ class Timetable extends CI_Model {
         $this->makeCourses("courses");
         $this->makeDays("days");
         $this->makeTimeslots("timeslots");
+        $this->xml = null;
         var_dump($this->courses);
     }
     
