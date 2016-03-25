@@ -11,7 +11,7 @@
  *
  * @author Gabriella
  */
-class Timeslot extends Timetable{
+class Timeslot extends Timetable {
     
     public $timeslots = array();
     //Create the Players model
