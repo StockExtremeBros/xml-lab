@@ -20,7 +20,7 @@ class Welcome extends CI_Controller {
      */
     public function index()
     {
-        $this->load->view('welcome_message');
+        $this->load->library('parser');
 
         $this->load->model('timetable');
 
@@ -29,15 +29,17 @@ class Welcome extends CI_Controller {
         $this->fill_courses_drop_down();
         $this->fill_days_drop_down();
         $this->fill_times_drop_down();
+        $this->parser->parse('welcome', $this->data);
+        
     }
 
     function fill_times_drop_down()
     {
         $allTimes = $this->timetable->getAllStartTimes();
-        $times = '<li>none</li>';
+        $times = '<option>none</option>';
         foreach($allTimes as $key=>$value)
         { 
-             $times .= '<li>'.$key.'</li>';
+             $times .= '<option>'.$key.'</option>';
         }
         $this->data['timedropdown'] = $times;
     }
@@ -45,10 +47,10 @@ class Welcome extends CI_Controller {
     function fill_days_drop_down()
     {
         $allDays = $this->timetable->getAllDays();
-        $days = '<li>none</li>';
+        $days = '<option>none</option>';
         foreach($allDays as $key)
         { 
-             $days .= '<li>'.$key.'</li>';
+             $days .= '<option>'.$key.'</option>';
         }
         $this->data['daydropdown'] = $days;
     }
@@ -56,10 +58,10 @@ class Welcome extends CI_Controller {
     function fill_courses_drop_down()
     {
         $allCourses = $this->timetable->getAllCourses();
-        $courses = '<li>none</li>';
+        $courses = '<option>none</option>';
         foreach($allCourses as $key)
         { 
-             $courses .= '<li>'.$key.'</li>';
+             $courses .= '<option>'.$key.'</option>';
         }
         $this->data['coursedropdown'] = $courses;
     }
