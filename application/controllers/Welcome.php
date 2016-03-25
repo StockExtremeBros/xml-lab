@@ -23,12 +23,12 @@ class Welcome extends CI_Controller {
             $this->load->view('welcome_message');
             
             $this->load->model('timetable');
-            
-            var_dump($this->timetable->getBookings("BLAW3600", "none", "none"));
 	}
         
-        public function search()
+        public function search($code, $day, $time)
         {
-            
+            $this->load->model('timetable');
+            //$bookings = $this->timetable->getBookings($code, $day, $time);
+            var_dump($this->timetable->getBookings($code, $day, $time));
         }
 }
