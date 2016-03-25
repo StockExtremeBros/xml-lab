@@ -1,0 +1,24 @@
+<tr>
+    <td>{day}</td>
+</tr>
+<tr>
+    <td>{start}</td>
+</tr>
+<tr>
+    <td>{end}</td>
+</tr>
+<tr>
+    <td>{code}</td>
+</tr>
+<tr>
+    <td>{building}</td>
+</tr>
+<tr>
+    <td>{room}</td>
+</tr>
+<tr>
+    <td>{type}</td>
+</tr>
+<tr>
+    <td>{instructor}</td>
+</tr>
