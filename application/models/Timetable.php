@@ -22,7 +22,7 @@ class Timetable extends CI_Model {
         $this->makeCourses("courses");
         $this->makeDays("days");
         $this->makeTimeslots("timeslots");
-        var_dump($this->courses);
+        //var_dump($this->courses);
     }
     
     function makeTimeslots($filename)
@@ -87,6 +87,98 @@ class Timetable extends CI_Model {
                 $this->courses[$this->code][] = $tempBooking;
             }
            
+        }
+    }
+    
+    function getDayBookings($day)
+    {
+        if (isset($this->days[$day]))
+        {
+            return $this->days[$day];
+        }
+        else
+        {
+            return null;
+        }
+    }
+    
+    function getCourseBookings($code)
+    {
+        if (isset($this->courses[$code]))
+        {
+            return $this->courses[$code];
+        }
+        else
+        {
+            return null;
+        }
+    }
+    
+    function getTimeBookings($start)
+    {
+        if (isset($this->timeslots[$start]))
+        {
+            return $this->timeslots[$start];
+        }
+        else
+        {
+            return null;
+        }
+    }
+    
+    function getAllDays()
+    {
+        return array_keys($this->days);
+    }
+    
+    function getAllStartTimes()
+    {
+        return array_keys($this->timeslots);
+    }
+    
+    function getAllCourses()
+    {
+        return array_keys($this->courses);
+    }
+    
+    function getBookings($user_code, $user_day, $user_time)
+    {
+        $tempBookings = array();
+        $finalBookings = array();
+        
+        if ($user_code !== "none")
+        {
+            $tempBookings = $this->getCourseBookings($user_code);
+            
+        } else if ($user_day !== "none")
+        {
+            $tempBookings = $this->getDayBookings($user_day);
+        } else if ($user_time !== "none")
+        {
+            $tempBookings = $this->getTimeBookings($user_time);
+        }
+        
+        if (empty($tempBookings))
+        {
+            foreach($this->courses as $group)
+            {
+                foreach ($group as $booking)
+                {
+                    array_push($finalBookings, $booking);
+                }
+            }
+            return $finalBookings;
+        } else {
+            foreach($tempBookings as $booking)
+            {
+                if (($booking->code === $user_code || $user_code === "none")
+                        && ($booking->day === $user_day || $user_day === "none")
+                        && ($booking->start === $user_time || $user_time === "none"))
+                {
+                    array_push($finalBookings, $booking);
+                }
+            }
+            return $finalBookings;
         }
     }
 }

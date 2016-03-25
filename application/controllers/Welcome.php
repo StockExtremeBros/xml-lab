@@ -24,9 +24,11 @@ class Welcome extends CI_Controller {
             
             $this->load->model('timetable');
             
-            var_dump($this->timetable);
-            //var_dump($this->courseslot);
-            //var_dump($this->dayslot);
-            //var_dump($this->timeslot);
+            var_dump($this->timetable->getBookings("BLAW3600", "none", "none"));
 	}
+        
+        public function search()
+        {
+            
+        }
 }
