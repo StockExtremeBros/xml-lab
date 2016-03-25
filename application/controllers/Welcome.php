@@ -24,11 +24,16 @@ class Welcome extends CI_Controller {
 
         $this->load->model('timetable');
 
-        var_dump($this->timetable->getBookings("BLAW3600", "none", "none"));
-        
         $this->fill_courses_drop_down();
         $this->fill_days_drop_down();
         $this->fill_times_drop_down();
+    }
+
+    public function search($code, $day, $time)
+    {
+        $this->load->model('timetable');
+        //$bookings = $this->timetable->getBookings($code, $day, $time);
+        var_dump($this->timetable->getBookings($code, $day, $time));
     }
 
     function fill_times_drop_down()
@@ -62,10 +67,5 @@ class Welcome extends CI_Controller {
              $courses .= '<li>'.$key.'</li>';
         }
         $this->data['coursedropdown'] = $courses;
-    }
-        
-    public function search()
-    {
-
     }
 }
