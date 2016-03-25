@@ -20,42 +20,43 @@ class Welcome extends CI_Controller {
      */
     public function index()
     {
-        $this->load->view('welcome');
-        $this->load->model('timetable');
-        $this->load->library('table');
+        $this->load->helper('url');
+        $search = $this->input->post();
+        $tempcode = $search["Courses"];
+        $tempday = $search["Days"];
+        $temptime = $search["Times"];
+        
         $this->load->library('parser');
 
-        //var_dump($this->timetable->getBookings("BLAW3600", "none", "none"));
-        
+        $this->load->model('timetable');
+
         $this->fill_courses_drop_down();
         $this->fill_days_drop_down();
         $this->fill_times_drop_down();
         
-        $tabletemp = array(
-            'table_open' => '<table class="schedule">'
-        );
-        $this->table->set_template($tabletemp);
-        $this->table->set_heading('Day', 'Start', 'End', 'Code', 'Building'
-                , 'Room', 'Type', 'Instructor');
-        $schedule = array();
-        $alldays = $this->timetable->getAllDays();
-        foreach ($alldays as $key => $day) {
-            $dayslot = $this->timetable->getDayBookings($day);
-            foreach ($dayslot as $key => $booking)
-                array_push($schedule, $booking);
-        }
-        var_dump($schedule);
-        $this->data['schedule'] = $this->table->generate($schedule);
+        if ($this->input->server('REQUEST_METHOD') == 'POST')
+            $this->data['resultData'] = $this->search($tempcode, $tempday, $temptime);
+        else
+            $this->data['resultData'] = '';
         
+        $this->parser->parse('welcome', $this->data);
+        
+    }
+
+    public function search($code, $day, $time)
+    {
+        $this->load->model('timetable');
+        //$bookings = $this->timetable->getBookings($code, $day, $time);
+        var_dump($this->timetable->getBookings($code, $day, $time));
     }
 
     function fill_times_drop_down()
     {
         $allTimes = $this->timetable->getAllStartTimes();
-        $times = '<li>none</li>';
-        foreach($allTimes as $key=>$value)
+        $times = '<option>none</option>';
+        foreach($allTimes as $key)
         { 
-             $times .= '<li>'.$key.'</li>';
+             $times .= '<option>'.$key.'</option>';
         }
         $this->data['timedropdown'] = $times;
     }
@@ -63,10 +64,10 @@ class Welcome extends CI_Controller {
     function fill_days_drop_down()
     {
         $allDays = $this->timetable->getAllDays();
-        $days = '<li>none</li>';
+        $days = '<option>none</option>';
         foreach($allDays as $key)
         { 
-             $days .= '<li>'.$key.'</li>';
+             $days .= '<option>'.$key.'</option>';
         }
         $this->data['daydropdown'] = $days;
     }
@@ -74,16 +75,11 @@ class Welcome extends CI_Controller {
     function fill_courses_drop_down()
     {
         $allCourses = $this->timetable->getAllCourses();
-        $courses = '<li>none</li>';
+        $courses = '<option>none</option>';
         foreach($allCourses as $key)
         { 
-             $courses .= '<li>'.$key.'</li>';
+             $courses .= '<option>'.$key.'</option>';
         }
         $this->data['coursedropdown'] = $courses;
-    }
-        
-    public function search()
-    {
-
     }
 }

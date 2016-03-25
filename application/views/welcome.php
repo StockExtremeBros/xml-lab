@@ -1,19 +1,34 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Class Schedule</title>
-</head>
-<body>
-
-<div id="container">
-	<h1>Timetable</h1>
-
-	{schedule}
-        
-</div>
-
-</body>
+<html>
+    <head>
+        <title>COMP4711 XML Lab Simple</title>
+    </head>
+    <form method="post" name="values">
+        <table>
+        <tr>
+            <td>Days</td>
+            <td>Courses</td>
+            <td>Time</td>
+        </tr>
+        <tr>
+            <td>
+                <select name="Courses">
+                    {coursedropdown}
+                </select>
+            </td>
+            <td>
+                <select name="Days">
+                    {daydropdown}
+                </select>
+            </td>
+            <td>
+                <select name="Times">
+                    {timedropdown}
+                </select>
+            </td>
+            <td>
+                <input type="submit">
+            </td>
+        </tr>
+    </form>
+    
 </html>
