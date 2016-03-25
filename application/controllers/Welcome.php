@@ -20,6 +20,12 @@ class Welcome extends CI_Controller {
      */
     public function index()
     {
+        $this->load->helper('url');
+        $search = $this->input->post();
+        $tempcode = $search["Courses"];
+        $tempday = $search["Days"];
+        $temptime = $search["Times"];
+        
         $this->load->library('parser');
 
         $this->load->model('timetable');
@@ -27,6 +33,12 @@ class Welcome extends CI_Controller {
         $this->fill_courses_drop_down();
         $this->fill_days_drop_down();
         $this->fill_times_drop_down();
+        
+        if ($this->input->server('REQUEST_METHOD') == 'POST')
+            $this->data['resultData'] = $this->search($tempcode, $tempday, $temptime);
+        else
+            $this->data['resultData'] = '';
+        
         $this->parser->parse('welcome', $this->data);
         
     }
@@ -42,7 +54,7 @@ class Welcome extends CI_Controller {
     {
         $allTimes = $this->timetable->getAllStartTimes();
         $times = '<option>none</option>';
-        foreach($allTimes as $key=>$value)
+        foreach($allTimes as $key)
         { 
              $times .= '<option>'.$key.'</option>';
         }
