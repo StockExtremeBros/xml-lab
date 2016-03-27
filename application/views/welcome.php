@@ -29,8 +29,8 @@
                 <form method="post" name="values">
                     <table>
                     <tr>
-                        <td>Days</td>
                         <td>Courses</td>
+                        <td>Days</td>
                         <td>Time</td>
                     </tr>
                     <tr>
