@@ -182,6 +182,52 @@ class Timetable extends CI_Model {
         }
     }
     
+    public function getCourseBookingsUsingDayAndTime($day, $time)
+    {
+        foreach($this->courses as $bookingsByCourse)
+        {
+            foreach($bookingsByCourse as $booking)
+            {
+                if (($booking->day === $day) 
+                    && ($booking->start === $time))
+                {
+                    return $booking;
+                }
+            }
+            
+        }
+    }
+
+    public function getDayBookingsUsingDayAndTime($day, $time)
+    {
+        foreach($this->days as $bookingsByDay)
+        {
+            foreach($bookingsByDay as $booking)
+            {
+                if (($booking->day === $day) 
+                    && ($booking->start === $time))
+                {
+                    return $booking;
+                }
+            }
+        }
+    }
+    
+    public function getTimeBookingsUsingDayAndTime($day, $time)
+    {
+        foreach($this->timeslots as $bookingsByTime)
+        {
+            foreach($bookingsByTime as $booking)
+            {
+                if (($booking->day === $day) 
+                    && ($booking->start === $time))
+                {
+                    return $booking;
+                }
+            }
+        }
+    }
+    
     function getAllBookings() {
         
     }
