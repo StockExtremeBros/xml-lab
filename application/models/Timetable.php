@@ -227,10 +227,6 @@ class Timetable extends CI_Model {
             }
         }
     }
-    
-    function getAllBookings() {
-        
-    }
 }
 
 class Booking {
