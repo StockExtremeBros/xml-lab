@@ -58,6 +58,10 @@
                 <div>
                     <h2>Bingo was {bingo_found}</h2>
                     {bingo_results}
+                    <div class="table-responsive">
+                        <h3> Bingo Result </h3>
+                        {bingo_result_table}
+                    </div>
                 </div>
                 <div class="table-responsive">
                     <h3> Course Results </h3>

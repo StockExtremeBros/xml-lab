@@ -48,7 +48,19 @@ class Welcome extends CI_Controller {
         
         
         // Handle any bingos here.
-        $this->bingo($tempcode, $tempday, $temptime);
+        $bingoBooking = $this->bingo($tempcode, $tempday, $temptime);
+        if (!empty($bingoBooking))
+        {
+            $booking[] = $bingoBooking->toArray();
+            $template = array('table_open' => '<table id="tableResults"'
+            . ' class="table table-striped table-hover text-center">');
+            $this->table->set_template($template);
+            $this->table->set_heading('Day', 'Start', 'End', 'Code', 'Building',
+                'Room', 'Type', 'Instructor');
+            $this->data['bingo_result_table'] = $this->table->generate($booking);
+        } else {
+            $this->data['bingo_result_table'] = '';
+        }
         
         $this->data['course_result_table'] = $this->search_code($tempcode);
         $this->data['day_result_table'] = $this->search_day($tempday);
@@ -116,27 +128,17 @@ class Welcome extends CI_Controller {
         $this->data['bingo_results'] = 'Sorry, better luck next time.';
         $this->data['bingo_found'] = 'not found...';
         
-        if($code === 'none' || $day === 'none' || $time === 'none')
-            return false;
+        $courseBooking = $this->timetable->getCourseBookingsUsingDayAndTime($day, $time);
+        $dayBooking = $this->timetable->getDayBookingsUsingDayAndTime($day, $time);
+        $timeBooking = $this->timetable->getTimeBookingsUsingDayAndTime($day, $time);
         
-        $courseBookings = $this->timetable->getCourseBookings($code);
-        $dayBookings = $this->timetable->getDayBookings($day);
-        $timeBookings = $this->timetable->getTimeBookings($time);
-        
-        
-        foreach($courseBookings as $cBook)
+        if (!empty($courseBooking) && !empty($dayBooking) && !empty($timeBooking))
         {
-            foreach($dayBookings as $dBook)
+            if (($courseBooking->compare($dayBooking)) && ($courseBooking->compare($timeBooking)))
             {
-                foreach($timeBookings as $tBook)
-                {
-                    if (($cBook->compare($dBook) === true) && ($cBook->compare($tBook) === true))
-                    {
-                        $this->data['bingo_results'] = 'Woo hoo! We have a winner!';
-                        $this->data['bingo_found'] = 'found!';
-                        return true;
-                    }
-                }
+                $this->data['bingo_results'] = 'Woo hoo! We have a winner!';
+                $this->data['bingo_found'] = 'found!';
+                return $courseBooking;
             }
         }
         return false;
