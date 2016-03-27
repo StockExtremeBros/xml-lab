@@ -20,13 +20,23 @@ class Welcome extends CI_Controller {
      */
     public function index()
     {
+        $tempcode = $tempday = $temptime = null;
+        
         $this->load->helper('url');
+        $this->load->library('table');
         $search = $this->input->post();
         if ($search) {
             $tempcode = $search["Courses"];
             $tempday = $search["Days"];
             $temptime = $search["Times"];
         }
+        
+        if($tempcode == null)
+            $tempcode = 'none';
+        if($tempday == null)
+            $tempday = 'none';
+        if($temptime == null)
+            $temptime = 'none';
         
         $this->load->library('parser');
 
@@ -36,24 +46,60 @@ class Welcome extends CI_Controller {
         $this->fill_days_drop_down();
         $this->fill_times_drop_down();
         
-        if ($this->input->server('REQUEST_METHOD') == 'POST')
-            $this->data['result_table'] = $this->search($tempcode, $tempday, $temptime);
-        else
-            $this->data['result_table'] = $this->search('','','');
+        
+        // Handle any bingos here.
+        $this->bingo($tempcode, $tempday, $temptime);
+        
+        $this->data['course_result_table'] = $this->search_code($tempcode);
+        $this->data['day_result_table'] = $this->search_day($tempday);
+        $this->data['time_result_table'] = $this->search_time($temptime);
         
         $this->parser->parse('welcome', $this->data);
-        
     }
-
-    public function search($code, $day, $time)
-    {   
-        $this->load->library('table');
-        if ($code !== "none" && $day !== "none" && $time !== "none")
-        {
-            $bingo = $this->bingo($code, $day, $time);
-            //var_dump($bingo);
+    
+    public function search_code($code)
+    {
+        if($code !== "none")
+            $bookings = $this->timetable->getCourseBookings($code);
+        else
+            return '';
+        
+        foreach ($bookings as $key => $booking) {
+            $bookings[$key] = $booking->toArray();
         }
-        $bookings = $this->timetable->getBookings($code, $day, $time);
+        $template = array('table_open' => '<table id="tableResults"'
+            . ' class="table table-striped table-hover text-center">');
+        $this->table->set_template($template);
+        $this->table->set_heading('Day', 'Start', 'End', 'Code', 'Building',
+                'Room', 'Type', 'Instructor');
+        return $this->table->generate($bookings);
+    }
+    
+    public function search_day($code)
+    {
+        if($code !== "none")
+            $bookings = $this->timetable->getDayBookings($code);
+        else
+            return '';
+        
+        foreach ($bookings as $key => $booking) {
+            $bookings[$key] = $booking->toArray();
+        }
+        $template = array('table_open' => '<table id="tableResults"'
+            . ' class="table table-striped table-hover text-center">');
+        $this->table->set_template($template);
+        $this->table->set_heading('Day', 'Start', 'End', 'Code', 'Building',
+                'Room', 'Type', 'Instructor');
+        return $this->table->generate($bookings);
+    }
+    
+    public function search_time($code)
+    {
+        if($code !== "none")
+            $bookings = $this->timetable->getTimeBookings($code);
+        else
+            return '';
+        
         foreach ($bookings as $key => $booking) {
             $bookings[$key] = $booking->toArray();
         }
@@ -67,9 +113,16 @@ class Welcome extends CI_Controller {
     
     public function bingo($code, $day, $time)
     {
+        $this->data['bingo_results'] = 'Sorry, better luck next time.';
+        $this->data['bingo_found'] = 'not found...';
+        
+        if($code === 'none' || $day === 'none' || $time === 'none')
+            return false;
+        
         $courseBookings = $this->timetable->getCourseBookings($code);
         $dayBookings = $this->timetable->getDayBookings($day);
         $timeBookings = $this->timetable->getTimeBookings($time);
+        
         
         foreach($courseBookings as $cBook)
         {
@@ -79,6 +132,8 @@ class Welcome extends CI_Controller {
                 {
                     if (($cBook->compare($dBook) === true) && ($cBook->compare($tBook) === true))
                     {
+                        $this->data['bingo_results'] = 'Woo hoo! We have a winner!';
+                        $this->data['bingo_found'] = 'found!';
                         return true;
                     }
                 }
