@@ -46,8 +46,13 @@ class Welcome extends CI_Controller {
     }
 
     public function search($code, $day, $time)
-    {
+    {   
         $this->load->library('table');
+        if ($code !== "none" && $day !== "none" && $time !== "none")
+        {
+            $bingo = $this->bingo($code, $day, $time);
+            //var_dump($bingo);
+        }
         $bookings = $this->timetable->getBookings($code, $day, $time);
         foreach ($bookings as $key => $booking) {
             $bookings[$key] = $booking->toArray();
@@ -58,6 +63,28 @@ class Welcome extends CI_Controller {
         $this->table->set_heading('Day', 'Start', 'End', 'Code', 'Building',
                 'Room', 'Type', 'Instructor');
         return $this->table->generate($bookings);
+    }
+    
+    public function bingo($code, $day, $time)
+    {
+        $courseBookings = $this->timetable->getCourseBookings($code);
+        $dayBookings = $this->timetable->getDayBookings($day);
+        $timeBookings = $this->timetable->getTimeBookings($time);
+        
+        foreach($courseBookings as $cBook)
+        {
+            foreach($dayBookings as $dBook)
+            {
+                foreach($timeBookings as $tBook)
+                {
+                    if (($cBook->compare($dBook) === true) && ($cBook->compare($tBook) === true))
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     function fill_times_drop_down()
