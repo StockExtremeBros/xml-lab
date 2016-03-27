@@ -22,9 +22,11 @@ class Welcome extends CI_Controller {
     {
         $this->load->helper('url');
         $search = $this->input->post();
-        $tempcode = $search["Courses"];
-        $tempday = $search["Days"];
-        $temptime = $search["Times"];
+        if ($search) {
+            $tempcode = $search["Courses"];
+            $tempday = $search["Days"];
+            $temptime = $search["Times"];
+        }
         
         $this->load->library('parser');
 
@@ -35,9 +37,9 @@ class Welcome extends CI_Controller {
         $this->fill_times_drop_down();
         
         if ($this->input->server('REQUEST_METHOD') == 'POST')
-            $this->data['resultData'] = $this->search($tempcode, $tempday, $temptime);
+            $this->data['result_table'] = $this->search($tempcode, $tempday, $temptime);
         else
-            $this->data['resultData'] = '';
+            $this->data['result_table'] = $this->search('','','');
         
         $this->parser->parse('welcome', $this->data);
         
@@ -45,9 +47,17 @@ class Welcome extends CI_Controller {
 
     public function search($code, $day, $time)
     {
-        $this->load->model('timetable');
-        //$bookings = $this->timetable->getBookings($code, $day, $time);
-        var_dump($this->timetable->getBookings($code, $day, $time));
+        $this->load->library('table');
+        $bookings = $this->timetable->getBookings($code, $day, $time);
+        foreach ($bookings as $key => $booking) {
+            $bookings[$key] = $booking->toArray();
+        }
+        $template = array('table_open' => '<table id="tableResults"'
+            . ' class="table table-striped table-hover text-center">');
+        $this->table->set_template($template);
+        $this->table->set_heading('Day', 'Start', 'End', 'Code', 'Building',
+                'Room', 'Type', 'Instructor');
+        return $this->table->generate($bookings);
     }
 
     function fill_times_drop_down()

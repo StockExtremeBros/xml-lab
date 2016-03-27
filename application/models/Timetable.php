@@ -181,6 +181,10 @@ class Timetable extends CI_Model {
             return $finalBookings;
         }
     }
+    
+    function getAllBookings() {
+        
+    }
 }
 
 class Booking {
@@ -202,5 +206,40 @@ class Booking {
         $this->room = (String) $entry->room;
         $this->type = (String) $entry->type;
         $this->instructor = (String) $entry->instructor;        
+    }
+    
+    /*
+     * Returns a string array of this Booking object
+     */
+    function toArray() {
+        return array(
+          'day' => $this->day,
+          'start' => $this->start,
+          'end' => $this->end,
+          'code' => $this->code,
+          'building' => $this->building,
+          'room' => $this->room,
+          'type' => $this->type,
+          'instructor' => $this->instructor
+        );
+    }
+    
+    /*
+     * Compares the passed in Booking entry with the entry associated with this
+     * object
+     * 
+     * return: returns true if their members are all are equal, otherwise false
+     */
+    function compare($compareTo) {
+        if (   $this->day       == $compareTo->day
+            && $this->start     == $compareTo->start
+            && $this->end       == $compareTo->end
+            && $this->code      == $compareTo->code
+            && $this->building  == $compareTo->building
+            && $this->room      == $compareTo->room
+            && $this->type      == $compareTo->type
+            && $this->instructor == $compareTo->instructor)
+            return true;
+        return false;
     }
 }
