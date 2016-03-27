@@ -23,6 +23,7 @@ and open the template in the editor.
             <end>1720</end>
             <building>SE12</building>
             <room>321</room>
+            <type>lab</type>
             <instructor>Jim Parry</instructor>
         </booking>
     </courseslot>
