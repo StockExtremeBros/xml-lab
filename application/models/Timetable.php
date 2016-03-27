@@ -122,7 +122,7 @@ class Timetable extends CI_Model {
         }
         else
         {
-            return null;
+            return $this->timeslots;
         }
     }
     
@@ -141,7 +141,7 @@ class Timetable extends CI_Model {
         return array_keys($this->courses);
     }
     
-    function getBookings($user_code, $user_day, $user_time)
+    function getBookings($user_code = "none", $user_day = "none", $user_time = "none")
     {
         $tempBookings = array();
         $finalBookings = array();
@@ -231,15 +231,18 @@ class Booking {
      * return: returns true if their members are all are equal, otherwise false
      */
     function compare($compareTo) {
-        if (   $this->day       == $compareTo->day
-            && $this->start     == $compareTo->start
-            && $this->end       == $compareTo->end
-            && $this->code      == $compareTo->code
-            && $this->building  == $compareTo->building
-            && $this->room      == $compareTo->room
-            && $this->type      == $compareTo->type
+        if (   $this->day        == $compareTo->day
+            && $this->start      == $compareTo->start
+            && $this->end        == $compareTo->end
+            && $this->code       == $compareTo->code
+            && $this->building   == $compareTo->building
+            && $this->room       == $compareTo->room
+            && $this->type       == $compareTo->type
             && $this->instructor == $compareTo->instructor)
+        {
             return true;
+        }
+            
         return false;
     }
 }

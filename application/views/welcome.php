@@ -25,9 +25,8 @@
                     </nav>
                 </div>
             </div>
-            <div id="content">
-                <form method="post" name="values">
-                    <table>
+            <form method="post" name="values">
+                <table>
                     <tr>
                         <td>Courses</td>
                         <td>Days</td>
@@ -53,9 +52,24 @@
                             <input type="submit">
                         </td>
                     </tr>
-                </form>
+                </table>
+            </form>
+            <div id="content">
+                <div>
+                    <h2>Bingo was {bingo_found}</h2>
+                    {bingo_results}
+                </div>
                 <div class="table-responsive">
-                    {result_table}
+                    <h3> Course Results </h3>
+                    {course_result_table}
+                </div>
+                <div class="table-responsive">
+                    <h3> Day Results </h3>
+                    {day_result_table}
+                </div>
+                <div class="table-responsive">
+                    <h3> Time Results </h3>
+                    {time_result_table}
                 </div>
             </div>
         </div>
