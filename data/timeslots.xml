@@ -12,7 +12,7 @@ and open the template in the editor.
         <booking>
             <day>Friday</day>
             <code>BLAW3600</code>
-            <type>Lecture</type>
+            <type>lecture</type>
             <building>SW5</building>
             <room>1840</room>
             <instructor>Catherine Ryan</instructor>
@@ -23,7 +23,7 @@ and open the template in the editor.
         <booking>
             <day>Monday</day>
             <code>COMP4985</code>
-            <type>Lab</type>
+            <type>lecture/lab</type>
             <building>SE12</building>
             <room>323</room>
             <instructor>Aman Abdulla</instructor>
@@ -31,7 +31,7 @@ and open the template in the editor.
         <booking>
             <day>Tuesday</day>
             <code>COMP4981</code>
-            <type>Lab</type>
+            <type>lecture/lab</type>
             <building>SE12</building>
             <room>323</room>
             <instructor>Aman Abdulla</instructor>
@@ -39,18 +39,18 @@ and open the template in the editor.
         <booking>
             <day>Thursday</day>
             <code>COMP4981</code>
-            <type>Lecture</type>
+            <type>lecture/lab</type>
             <building>SE12</building>
             <room>323</room>
             <instructor>Aman Abdulla</instructor>
         </booking>
     </timeslot>
     
-    <timeslot start="930" end="1220">
+    <timeslot start="0930" end="1220">
         <booking>
             <day>Wednesday</day>
             <code>COMP4985</code>
-            <type>Lecture</type>
+            <type>lecture/lab</type>
             <building>SE12</building>
             <room>323</room>
             <instructor>Aman Abdulla</instructor>
@@ -61,7 +61,7 @@ and open the template in the editor.
         <booking>
             <day>Monday</day>
             <code>COMP4735</code>
-            <type>Lecture</type>
+            <type>lecture</type>
             <building>SW1</building>
             <room>1205</room>
             <instructor>Mirela Gutica</instructor>
@@ -69,7 +69,7 @@ and open the template in the editor.
         <booking>
             <day>Tuesday</day>
             <code>COMP4560</code>
-            <type>Lecture</type>
+            <type>lecture</type>
             <building>SW5</building>
             <room>1850</room>
             <instructor>Brenda Fine</instructor>
@@ -77,18 +77,18 @@ and open the template in the editor.
         <booking>
             <day>Monday</day>
             <code>COMP4735</code>
-            <type>Lecture</type>
+            <type>lecture</type>
             <building>SW3</building>
             <room>1710</room>
             <instructor>Mirela Gutica</instructor>
         </booking>
     </timeslot>
     
-    <timeslot start="1230" end="120">
+    <timeslot start="1230" end="1320">
         <booking>
             <day>Wednesday</day>
             <code>COMP4985</code>
-            <type>Lecture</type>
+            <type>lecture/lab</type>
             <building>SE12</building>
             <room>323</room>
             <instructor>Aman Abdulla</instructor>
@@ -96,18 +96,18 @@ and open the template in the editor.
         <booking>
             <day>Friday</day>
             <code>COMP4560</code>
-            <type>Lecture</type>
+            <type>lecture</type>
             <building>SW3</building>
             <room>1750</room>
             <instructor>Brenda Fine</instructor>
         </booking>
     </timeslot>
     
-    <timeslot start="1230" end="220">
+    <timeslot start="1230" end="1320">
         <booking>
             <day>Monday</day>
             <code>BLAW3600</code>
-            <type>Lab</type>
+            <type>lab</type>
             <building>SW9</building>
             <room>127</room>
             <instructor>Catherine Ryan</instructor>
@@ -118,7 +118,7 @@ and open the template in the editor.
         <booking>
             <day>Wednesday</day>
             <code>COMP4735</code>
-            <type>Lecture</type>
+            <type>lecture</type>
             <building>SW1</building>
             <room>1205</room>
             <instructor>Mirela Gutica</instructor>
@@ -129,10 +129,10 @@ and open the template in the editor.
         <booking>
             <day>Tuesday</day>
             <code>COMP4711</code>
-            <type>Lecture</type>
+            <type>lecture</type>
             <building>SW5</building>
             <room>1840</room>
-            <instructor>James Parry</instructor>
+            <instructor>Jim Parry</instructor>
         </booking>
     </timeslot>
     
@@ -140,7 +140,7 @@ and open the template in the editor.
         <booking>
             <day>Monday</day>
             <code>COMP4560</code>
-            <type>Lab</type>
+            <type>lab</type>
             <building>SE12</building>
             <room>320</room>
             <instructor>Brenda Fine</instructor>
@@ -148,15 +148,15 @@ and open the template in the editor.
         <booking>
             <day>Tuesday</day>
             <code>COMP4711</code>
-            <type>Lab</type>
+            <type>lab</type>
             <building>SE12</building>
             <room>321</room>
-            <instructor>James Parry</instructor>
+            <instructor>Jim Parry</instructor>
         </booking>
         <booking>
             <day>Thursday</day>
             <code>COMP4735</code>
-            <type>Lab</type>
+            <type>lab</type>
             <building>SE12</building>
             <room>322</room>
             <instructor>Matthew Linder</instructor>
